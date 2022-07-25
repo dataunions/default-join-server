@@ -46,7 +46,7 @@ jobs:
           mysql version: '8.0'
           mysql database: 'join-server-test'
           mysql root password: 'password'
-      - run: mysql -u root --password=password -h 127.0.0.1 < create_database.sql
+      - run: mysql --user=root --password=password --host=127.0.0.1 --port=3800 < create_database.sql
       - run: echo "./node_modules/.bin" >> $GITHUB_PATH
       - run: npm ci
       - run: npm test
