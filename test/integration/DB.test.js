@@ -16,7 +16,7 @@ describe('DB', () => {
 	before(async () => {
 		sequelize = new Sequelize(process.env.TEST_DB_SCHEMA, process.env.TEST_DB_USER, process.env.TEST_DB_PASSWORD, {
 			host: process.env.TEST_DB_HOST,
-			post: process.env.TEST_DB_PORT,
+			port: process.env.TEST_DB_PORT,
 			dialect: 'mysql',
 		})
         

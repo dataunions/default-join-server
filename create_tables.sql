@@ -1,4 +1,4 @@
-CREATE DATABASE `join-server-test`;
+USE `join-server-test`;
 
 CREATE TABLE `data_union_secret` (
   `secret` varchar(255) NOT NULL,
