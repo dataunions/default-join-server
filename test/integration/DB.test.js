@@ -20,7 +20,7 @@ describe('DB', () => {
 			dialect: 'mysql',
 		})
         
-		await sequelize.authenticate()
+		await sequelize.query('DELETE FROM data_union_secret')
 
 		db = new DB(sequelize)
 	})
@@ -40,6 +40,11 @@ describe('DB', () => {
 	it('gets app secrets', async () => {
 		const fetchedSecret = await db.getAppSecret(secret.secret)
 		assert.deepEqual(fetchedSecret, secret)
+	})
+
+	it('lists app secrets', async () => {
+		const secrets = await db.listSecrets(DATA_UNION_ADDRESS, CHAIN)
+		assert.deepEqual(secrets, [secret])
 	})
 
 	it('deletes app secrets', async () => {

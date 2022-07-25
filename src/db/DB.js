@@ -15,8 +15,20 @@ class DB {
 				type: QueryTypes.SELECT
 			}
 		)
-		console.log(result)
 		return result[0]
+	}
+
+	async listSecrets(dataUnionAddress, chain) {
+		const results = await this.sequelize.query(
+			'SELECT * FROM data_union_secret WHERE contract_address = :dataUnionAddress AND chain = :chain', {
+				replacements: {
+					dataUnionAddress,
+					chain,
+				},
+				type: QueryTypes.SELECT
+			}
+		)
+		return results
 	}
 
 	async createAppSecret(dataUnionAddress, chain, name) {
