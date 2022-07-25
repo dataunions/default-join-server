@@ -30,7 +30,7 @@ jobs:
     env:
       TEST_DB_SCHEMA: join-server-test
       TEST_DB_USER: root
-      TEST_DB_PASSWORD: ''
+      TEST_DB_PASSWORD: password
       TEST_DB_HOST: localhost
       TEST_DB_PORT: 3800
     steps:
@@ -45,7 +45,7 @@ jobs:
           host port: 3800
           mysql version: '8.0'
           mysql database: 'join-server-test'
-          mysql root password: ''
+          mysql root password: 'password'
       - run: mysql -u root < create_database.sql
       - run: echo "./node_modules/.bin" >> $GITHUB_PATH
       - run: npm ci
