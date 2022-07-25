@@ -4,6 +4,8 @@
   "description": "A join server that extends the base join server by adding app secret validation",
   "main": "index.js",
   "scripts": {
+    "lint": "npx eslint .",
+    "lint-fix": "npx eslint --fix .",
     "test": "mocha --recursive --check-leaks test"
   },
   "repository": {
@@ -19,6 +21,10 @@
   },
   "devDependencies": {
     "chai": "^4.3.6",
+    "eslint": "^8.20.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
     "mocha": "^10.0.0",
     "sinon": "^14.0.0"
   }
