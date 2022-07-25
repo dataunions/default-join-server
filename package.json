@@ -1,0 +1,25 @@
+{
+  "name": "@dataunions/default-join-server",
+  "version": "0.0.0",
+  "description": "A join server that extends the base join server by adding app secret validation",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive --check-leaks test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dataunions/default-join-server.git"
+  },
+  "homepage": "https://github.com/dataunions/default-join-server",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.3",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "sinon": "^14.0.0"
+  }
+}
