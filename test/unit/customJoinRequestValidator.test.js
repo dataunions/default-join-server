@@ -32,7 +32,7 @@ describe('customJoinRequestValidator', async () => {
 	})
 
 	it('succeeds if the secret is correct', async () => {
-		await expect(customJoinRequestValidator({
+		await expect(customJoinRequestValidator('0x12345', {
 			dataUnion: '0xABCDEF',
 			chain: 'test-chain',
 			secret: 'test-secret',
@@ -41,7 +41,7 @@ describe('customJoinRequestValidator', async () => {
 	})
 
 	it('fails if the secret is not provided', async () => {
-		await expect(customJoinRequestValidator({
+		await expect(customJoinRequestValidator('0x12345', {
 			dataUnion: '0xABCDEF',
 			chain: 'test-chain',
 		})).to.be.rejectedWith(Error)
@@ -49,7 +49,7 @@ describe('customJoinRequestValidator', async () => {
 	})
 
 	it('fails if the secret is not found', async () => {
-		await expect(customJoinRequestValidator({
+		await expect(customJoinRequestValidator('0x12345', {
 			dataUnion: '0xABCDEF',
 			chain: 'test-chain',
 			secret: 'nonexistent',
@@ -58,7 +58,7 @@ describe('customJoinRequestValidator', async () => {
 	})
 
 	it('fails if the contract address does not match', async () => {
-		await expect(customJoinRequestValidator({
+		await expect(customJoinRequestValidator('0x12345', {
 			dataUnion: '0x12345',
 			chain: 'test-chain',
 			secret: 'test-secret',
@@ -67,7 +67,7 @@ describe('customJoinRequestValidator', async () => {
 	})
 
 	it('fails if the chain does not match', async () => {
-		await expect(customJoinRequestValidator({
+		await expect(customJoinRequestValidator('0x12345', {
 			dataUnion: '0xABCDEF',
 			chain: 'wrong-chain',
 			secret: 'test-secret',

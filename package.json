@@ -1,12 +1,13 @@
 {
   "name": "@dataunions/default-join-server",
   "version": "0.0.0",
-  "description": "A join server that extends the base join server by adding app secret validation",
-  "main": "index.js",
+  "description": "A join server that extends the base join server by adding app secret validation and Streamr-awareness",
+  "main": "src/index.js",
   "scripts": {
     "lint": "npx eslint .",
     "lint-fix": "npx eslint --fix .",
-    "test": "mocha --recursive --check-leaks test"
+    "test": "mocha --recursive --check-leaks test",
+	"start": "node src/index.js"
   },
   "repository": {
     "type": "git",

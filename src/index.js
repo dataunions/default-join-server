@@ -1,5 +1,5 @@
 const { Sequelize } = require('sequelize')
-const JoinServer = require('@dataunions/join-server')
+const { JoinServer } = require('@dataunions/join-server')
 const DataUnionClient = require('@dataunions/client')
 require('dotenv').config()
 
@@ -13,9 +13,9 @@ const sequelize = new Sequelize(process.env.DB_SCHEMA, process.env.DB_USER, proc
 	dialect: 'mysql',
 })
 
-const db = new DB(sequelize);
+const db = new DB(sequelize)
 
-(async () => {
+;(async () => {
 	try {
 		await sequelize.authenticate()
 		console.log('Database connection established successfully.')
