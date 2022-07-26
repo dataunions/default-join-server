@@ -20,7 +20,7 @@ class DB {
 
 	async listSecrets(dataUnionAddress, chain) {
 		const results = await this.sequelize.query(
-			'SELECT * FROM data_union_secret WHERE contract_address = :dataUnionAddress AND chain = :chain', {
+			'SELECT * FROM data_union_secret WHERE dataUnion = :dataUnionAddress AND chain = :chain', {
 				replacements: {
 					dataUnionAddress,
 					chain,
@@ -34,7 +34,7 @@ class DB {
 	async createAppSecret(dataUnionAddress, chain, name) {
 		const secret = uuid()
 		await this.sequelize.query(
-			'INSERT INTO data_union_secret (`secret`, `contract_address`, `chain`, `name`) VALUES (:secret, :dataUnionAddress, :chain, :name)',
+			'INSERT INTO data_union_secret (`secret`, `dataUnion`, `chain`, `name`) VALUES (:secret, :dataUnionAddress, :chain, :name)',
 			{
 				replacements: {
 					secret,

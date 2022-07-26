@@ -6,7 +6,7 @@ module.exports = (db) => {
 
 		const secret = await db.getAppSecret(joinRequest.secret)
 		if (!secret 
-            || secret.contract_address.toLowerCase() !== joinRequest.dataUnion.toLowerCase()
+            || secret.dataUnion.toLowerCase() !== joinRequest.dataUnion.toLowerCase()
             || secret.chain !== joinRequest.chain) {
 			throw new Error('Invalid app secret!')
 		}

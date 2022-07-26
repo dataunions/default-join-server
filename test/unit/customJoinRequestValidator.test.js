@@ -16,7 +16,7 @@ describe('customJoinRequestValidator', async () => {
 				if (secret === 'test-secret') {
 					return {
 						secret: 'test-secret',
-						contract_address: '0xabcdef',
+						dataUnion: '0xabcdef',
 						chain: 'test-chain',
 						name: 'This is a test secret',
 					}
