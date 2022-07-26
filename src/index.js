@@ -7,17 +7,17 @@ const DB = require('./db/DB')
 const createCustomJoinRequestValidator = require('./CustomJoinRequestValidator')
 const createCustomRoutes = require('./CustomRoutes')
 
-const sequelize = new Sequelize(process.env.DB_SCHEMA, process.env.DB_USER, process.env.DB_PASSWORD, {
-	host: process.env.DB_HOST,
-	port: process.env.DB_PORT,
+const sequelizeForSecrets = new Sequelize(process.env.SECRET_DB_SCHEMA, process.env.SECRET_DB_USER, process.env.SECRET_DB_PASSWORD, {
+	host: process.env.SECRET_DB_HOST,
+	port: process.env.SECRET_DB_PORT,
 	dialect: 'mysql',
 })
 
-const db = new DB(sequelize)
+const db = new DB(sequelizeForSecrets)
 
 ;(async () => {
 	try {
-		await sequelize.authenticate()
+		await sequelizeForSecrets.authenticate()
 		console.log('Database connection established successfully.')
 	} catch (error) {
 		console.error('Unable to connect to the database:', error)

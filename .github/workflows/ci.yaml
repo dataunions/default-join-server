@@ -28,11 +28,11 @@ jobs:
       - lint
     runs-on: ubuntu-20.04
     env:
-      TEST_DB_SCHEMA: join-server-test
-      TEST_DB_USER: root
-      TEST_DB_PASSWORD: password
-      TEST_DB_HOST: localhost
-      TEST_DB_PORT: 3800
+      SECRET_DB_SCHEMA: join-server-test
+      SECRET_DB_USER: root
+      SECRET_DB_PASSWORD: password
+      SECRET_DB_HOST: localhost
+      SECRET_DB_PORT: 3800
     steps:
       - uses: actions/checkout@v3.0.2
       - uses: actions/setup-node@v3.3.0

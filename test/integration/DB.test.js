@@ -14,9 +14,9 @@ describe('DB', () => {
 	const SECRET_NAME = `Test DU Secret ${Date.now()}`
 
 	before(async () => {
-		sequelize = new Sequelize(process.env.TEST_DB_SCHEMA, process.env.TEST_DB_USER, process.env.TEST_DB_PASSWORD, {
-			host: process.env.TEST_DB_HOST,
-			port: process.env.TEST_DB_PORT,
+		sequelize = new Sequelize(process.env.SECRET_DB_SCHEMA, process.env.SECRET_DB_USER, process.env.SECRET_DB_PASSWORD, {
+			host: process.env.SECRET_DB_HOST,
+			port: process.env.SECRET_DB_PORT,
 			dialect: 'mysql',
 		})
         
