@@ -1,4 +1,4 @@
-const { Sequelize } = require('sequelize')
+const { Sequelize, QueryTypes } = require('sequelize')
 const { assert } = require('chai')
 const DB = require('../../src/db/DB')
 require('dotenv').config()
@@ -11,7 +11,7 @@ describe('DB', () => {
 
 	const DATA_UNION_ADDRESS = '0x12345'
 	const CHAIN = 'nonexistent'
-	const SECRET_NAME = `Test DU Secret ${Date.now()}`
+	const SECRET_NAME = `DB.test.js-${Date.now()}`
 
 	before(async () => {
 		sequelize = new Sequelize(process.env.SECRET_DB_SCHEMA, process.env.SECRET_DB_USER, process.env.SECRET_DB_PASSWORD, {
@@ -20,7 +20,12 @@ describe('DB', () => {
 			dialect: 'mysql',
 		})
         
-		await sequelize.query('DELETE FROM data_union_secret')
+		await sequelize.query('DELETE FROM data_union_secret where name like :name', {
+			replacements: {
+				name: 'DB.test.js-%'
+			},
+			type: QueryTypes.DELETE
+		})
 
 		db = new DB(sequelize)
 	})
