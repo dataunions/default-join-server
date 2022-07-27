@@ -1,6 +1,6 @@
 const { Sequelize, QueryTypes } = require('sequelize')
 const { assert } = require('chai')
-const DB = require('../../src/db/DB')
+const DB = require('../../src/db/SecretDB')
 require('dotenv').config()
 
 describe('DB', () => {

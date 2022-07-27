@@ -1,7 +1,7 @@
 const { QueryTypes } = require('sequelize')
 const { v4: uuid } = require('uuid')
 
-class DB {
+class SecretDB {
 	constructor(sequelize) {
 		this.sequelize = sequelize
 	}
@@ -63,4 +63,4 @@ class DB {
 
 }
 
-module.exports = DB
+module.exports = SecretDB

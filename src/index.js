@@ -3,7 +3,7 @@ const { JoinServer } = require('@dataunions/join-server')
 const DataUnionClient = require('@dataunions/client')
 require('dotenv').config()
 
-const DB = require('./db/DB')
+const DB = require('./db/SecretDB')
 const createCustomJoinRequestValidator = require('./CustomJoinRequestValidator')
 const createCustomRoutes = require('./CustomRoutes')
 
