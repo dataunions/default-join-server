@@ -1,13 +1,16 @@
 {
   "name": "@dataunions/default-join-server",
-  "version": "0.0.0",
+  "version": "3.0.0-alpha.1",
   "description": "A join server that extends the base join server by adding app secret validation and Streamr-awareness",
-  "main": "src/index.js",
+  "main": "src/DefaultJoinServer.js",
   "scripts": {
     "lint": "npx eslint .",
     "lint-fix": "npx eslint --fix .",
     "test": "mocha --recursive --check-leaks test",
-	"start": "node src/index.js"
+    "start": "node src/cmd/index.js"
+  },
+  "bin": {
+    "default-join-server": "src/index.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +23,7 @@
     "dotenv": "^16.0.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.21.3",
+    "streamr-client": "6.0.9",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
