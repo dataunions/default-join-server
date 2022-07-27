@@ -109,6 +109,10 @@ The response returns the deleted secret:
 }
 ```
 
+### The secrets table
+
+See [create_tables.sql](create_tables.sql) for the SQL to create the database table for the secrets.
+
 ## Streamr-awareness
 
 After successfully adding a new member to the Data Union smart contract, this join server checks whether there are any [Streamr](https://streamr.network) streams associated with the Data Union, and grants the new member publish permission on those streams.
