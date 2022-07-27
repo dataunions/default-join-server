@@ -4,7 +4,7 @@ chai.use(require('chai-as-promised'))
 const sinon = require('sinon')
 const StreamrClient = require('streamr-client')
 
-const createStreamrAwareJoinHook = require("../../src/StreamrAwareJoinHook")
+const createStreamrAwareJoinHook = require("../../src/OnMemberJoin")
 
 describe('StreamrAwareJoinHook', () => {
 

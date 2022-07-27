@@ -8,7 +8,7 @@ const StreamrDB = require('./db/StreamrDB')
 
 const createCustomJoinRequestValidator = require('./CustomJoinRequestValidator')
 const createCustomRoutes = require('./CustomRoutes')
-const createStreamrAwareJoinHook = require("./StreamrAwareJoinHook")
+const createOnMemberJoin = require("./OnMemberJoin")
 
 module.exports = class DefaultJoinServer {
 
@@ -59,7 +59,7 @@ module.exports = class DefaultJoinServer {
 			privateKey: process.env.PRIVATE_KEY,
 			customJoinRequestValidator: createCustomJoinRequestValidator(secretsDB),
 			customRoutes: createCustomRoutes(client, secretsDB),
-			onMemberJoin: createStreamrAwareJoinHook(streamrDB, process.env.PRIVATE_KEY),
+			onMemberJoin: createOnMemberJoin(streamrDB, process.env.PRIVATE_KEY),
 			dataUnionClient: client,
 		})
 		srv.start()
